@@ -1,7 +1,7 @@
 import { EmbeddingService } from './embedding-generator';
 
 const mockPipelineResult = Object.assign(
-  (text: string) => Promise.resolve({ data: new Float32Array(384) }),
+  () => Promise.resolve({ data: new Float32Array(384) }),
   { data: new Float32Array(384) }
 );
 
@@ -29,7 +29,7 @@ describe('Embedding Generator', () => {
     const text = 'This is a test visualization research paper.';
     const embedding = await service.generateEmbedding(text);
     
-    expect(Array.isArray(embedding) || embedding instanceof Float32Array).toBe(true);
+    expect(Array.isArray(embedding)).toBe(true);
     expect(embedding.length).toBeGreaterThan(0);
     expect(embedding.length).toBe(384);
   });

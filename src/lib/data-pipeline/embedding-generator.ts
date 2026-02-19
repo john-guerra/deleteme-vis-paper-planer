@@ -31,7 +31,7 @@ export class EmbeddingService {
     
     // Generate embedding
     // The model typically returns a tensor object
-    const extractFn = this.extractor as Function;
+    const extractFn = this.extractor as (text: string, options: { pooling: string, normalize: boolean }) => Promise<{ data: Float32Array }>;
     const result = await extractFn(text, { pooling: 'mean', normalize: true });
     
     // Convert to standard JS array of numbers

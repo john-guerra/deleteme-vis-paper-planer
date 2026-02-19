@@ -4,7 +4,9 @@ import { createClient } from '@supabase/supabase-js';
 import { parseCSV, processPaperRecord } from '../lib/data-pipeline/csv-parser';
 import { EmbeddingService } from '../lib/data-pipeline/embedding-generator';
 
-require('dotenv').config({ path: '.env.local' });
+import * as dotenv from 'dotenv';
+
+dotenv.config({ path: '.env.local' });
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL;
 const SUPABASE_SERVICE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -62,7 +64,7 @@ async function main() {
       }
     });
 
-    const mapped = (await Promise.all(mappedPromises)).filter(Boolean) as any[];
+    const mapped = (await Promise.all(mappedPromises)).filter((item): item is NonNullable<typeof item> => item !== null);
 
     if (mapped.length > 0) {
       const { error } = await supabase.from('papers').insert(mapped);

@@ -1,5 +1,4 @@
 import { parseCSV, processPaperRecord } from './csv-parser';
-import * as path from 'path';
 
 describe('CSV Parser', () => {
   it('should parse a simulated CSV string correctly', async () => {
