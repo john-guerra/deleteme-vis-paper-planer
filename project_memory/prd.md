@@ -19,9 +19,6 @@ VIS Paper Planner is a web application designed to help visualization (VIS) rese
 - **Process:** Based on the retrieved nearest neighbors, the system analyzes historical trends.
 - **Output:** Suggestions on whether the idea fits the IEEE VIS scope and recommendations for appropriate application domains (e.g., biology, finance, systems).
 
-### 3.3. Actionable Feedback
-- **Output:** Recommendations on what elements of the paper the user should focus on to improve success (e.g., "Your idea is similar to Paper X, but they lacked a robust user study. You should focus your evaluation there.").
-
 ## 4. Technical Requirements
 
 ### 4.1. Data & Processing
